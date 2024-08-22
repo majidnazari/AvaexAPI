@@ -45,6 +45,8 @@ return new class extends Migration
             $table->enum('acquaintance_way', ["Friends", "Instagram", "Avaex_website", "None"])->default("None");
             $table->enum('status', ["Active", "Inactive"])->default("Inactive");
             $table->enum('request_status', ["1", "2", "None"])->default("None");
+            $table->string('description');
+
 
             $table->datetime("contract_termination_request")->nullable();
             $table->timestamps();
