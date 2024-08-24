@@ -27,6 +27,8 @@ return new class extends Migration
             $table->boolean('ability_to_insure_employees');
             $table->boolean('ability_to_pay_35_to_equipments');
             $table->enum('military_status', ["Finished", "Exempt", "Conscript", "Desert", "Student", "None"])->default("None");
+            $table->enum('degree', ["Primary_education", "Middle_education", "Diploma", "Associate_degree", "Bachelor", "Master_degree", "Ph.D", "None"])->default("None");
+            $table->string('major')->nullable();
             $table->enum('marital_status', ["Single", "Married", "Absolute", "Divorced", "None"])->default("None");
             $table->tinyInteger('number_of_children')->nullable();
             $table->enum('gender', ["Male", "Femail", "None"])->default("Male");

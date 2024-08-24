@@ -13,17 +13,22 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("provider_id");
+            $table->foreignId("user_id_creator");
+            $table->foreignId("user_id_agent");
+            $table->foreignId("provider_service_id");
             $table->foreignId("sender_address_id");
             $table->foreignId("recipient_address_id");
             $table->dateTime("register_date");
-            $table->enum("order_status", ["Preparing", "Prepared", "Ready_to_send", "Sent", "Delived", "Returned", "None"])->default("None");
             $table->enum("order_kind", ["One_sender_one_recipient", "One_sender_many_recipient", "None"])->default("None");
             $table->enum("financial_status", ["1", "2", "None"])->default("None");
             $table->boolean("is_COD")->default(false);
             $table->bigInteger("COD")->nullable();
             $table->enum("payment_type", ["Befor", "After", "None"])->default("None");
             $table->enum("payment_way", ["credit", "online", "cash", "None"])->default("None");
+            $table->enum("order_status", ["agent_registered", "suspend", "send_to_driver", "Preparing", "Prepared", "Ready_to_send", "Sent",  "Delived", "Returned", "None"])->default("None");
+
+            $table->string('description');
+
 
 
             $table->timestamps();

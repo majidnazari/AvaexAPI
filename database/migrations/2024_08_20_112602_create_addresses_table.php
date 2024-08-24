@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('country_id');
-            $table->unsignedInteger('province_id');
+            // $table->unsignedInteger('country_id');
+            // $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
-            $table->unsignedInteger('area_id');
-
+            //$table->unsignedInteger('area_id');
+            $table->string('title');
             $table->unsignedInteger('postal_code');
             $table->string('blv_name');
             $table->string('street_name');
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('mobile');
+            $table->string('pnone');
             $table->string('description');
 
 

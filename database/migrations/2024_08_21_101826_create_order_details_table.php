@@ -14,9 +14,16 @@ return new class extends Migration
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id');
+            $table->foreignId("parcel_id");
+
             $table->string('registered_number');
             $table->string('tracking_code');
             $table->string('refrence_code');
+            $table->string('lading_code');
+            $table->string('barcode');
+
+
+            $table->enum("parcel_status", ["Injured", "Delived", "Returned", "None"])->default("None");
 
             $table->integer('insurance_provider_cost');
             $table->integer('tax_provider_cost');
@@ -35,6 +42,8 @@ return new class extends Migration
             $table->integer('print_service_cost');
             $table->integer('extra_service_cost');
             $table->integer('manager_commission');
+            $table->string('description');
+
 
             $table->timestamps();
             $table->softDeletes();
