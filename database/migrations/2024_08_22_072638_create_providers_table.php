@@ -14,7 +14,16 @@ return new class extends Migration
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('end_point');
+            $table->string('user_name');
+            $table->string('password');
+            $table->string('grant_type');
+            $table->string('api_key');
+            $table->string('base_url');
+            $table->string('token_url');
+            $table->string('base_token');
+            $table->text('token');
+            $table->text('refresh_token');
+            $table->string('expire_date');
             $table->enum("status", ["Active", "Inactive", "None"])->default("None");
             $table->timestamps();
             $table->softDeletes();

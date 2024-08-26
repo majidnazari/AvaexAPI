@@ -20,7 +20,7 @@ return new class extends Migration
                 "payment_type",
                 [
                     "Sender_cash", "Sender_credit", "Sender_wallet", "Recipient_delevered",
-                    "Recipient_location", "Online", "Online_credit", "Prepaid", "Collect_on_delivery","Freight_collect", "None"
+                    "Recipient_location", "Online", "Online_credit", "Prepaid", "Collect_on_delivery", "Freight_collect", "None"
                 ]
             )->default("None");
             $table->enum("payment_status", ["Active", "Inactive"]);
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('provider_pament_types');
+        Schema::dropIfExists('provider_payment_types');
     }
 };

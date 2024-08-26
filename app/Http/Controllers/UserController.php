@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use App\Services\AuthService;
+
 
 
 class UserController extends Controller
@@ -16,6 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        $authService =  new AuthService;
+        $providers = $authService->authenticate();
+        dd("providers are:" . $providers);
     }
 
     /**

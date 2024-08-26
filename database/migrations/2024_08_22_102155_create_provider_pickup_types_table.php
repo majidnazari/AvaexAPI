@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('provider_pick_up_types');
+        Schema::dropIfExists('provider_pickup_types');
     }
 };
