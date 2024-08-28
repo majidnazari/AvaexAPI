@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,7 +22,12 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call(
             [
-                ProviderSeeder::class
+                ProviderSeeder::class,
+                CountrySeeder::class,
+                provinceSeeder::class,
+                CitySeeder::class,
+                AddressSeeder::class,
+                UserSeeder::class,
             ]
         );
     }

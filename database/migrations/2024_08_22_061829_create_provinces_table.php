@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
             $table->foreignId('country_id');
+            //$table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade'); // Optional: Set onDelete behavior;
             $table->string('fa_name');
-            $table->string('en_name');
-            $table->string('standard_code');
-            $table->integer('post_code');
-            $table->integer('tipax_code');
-            $table->integer('mahex_code');
-            $table->integer('chapar_code');
+            $table->string('en_name')->nullable();
+            // $table->string('code');
+            // $table->integer('post_code');
+            // $table->integer('tipax_code');
+            // $table->integer('mahex_code');
+            // $table->integer('chapar_code');
             $table->timestamps();
             $table->softDeletes();
         });

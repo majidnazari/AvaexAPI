@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('fa_name');
             $table->string('en_name');
-            $table->string('standard_code');
+            $table->string('code');
             $table->timestamps();
             $table->softDeletes();
         });
