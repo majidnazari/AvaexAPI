@@ -16,7 +16,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // $this->app->singleton('Post.auth', function ($app) {
+        //     return new PostAuth();
+        // });
+
+        // $this->app->singleton('Tipax.auth', function ($app) {
+        //     return new TipaxAuth();
+        // });
     }
 
     /**

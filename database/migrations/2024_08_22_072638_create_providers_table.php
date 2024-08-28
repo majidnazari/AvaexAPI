@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('base_url');
             $table->string('token_url');
             $table->string('base_token');
-            $table->text('token');
-            $table->text('refresh_token');
-            $table->string('expire_date');
+            $table->text('access_token');
+            $table->text('refresh_token')->nullable();
+            $table->datetime('expires_in')->nullable();
             $table->enum("status", ["Active", "Inactive", "None"])->default("None");
             $table->timestamps();
             $table->softDeletes();

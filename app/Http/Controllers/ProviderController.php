@@ -6,8 +6,25 @@ use App\Models\provider;
 use App\Http\Requests\StoreproviderRequest;
 use App\Http\Requests\UpdateproviderRequest;
 
+use App\Services\AuthStrategies\AuthStrategyInterface;
+use App\Services\AuthService;
+use App\Services\AuthStrategies\PostAuth;
+use App\Services\AuthStrategies\TipaxAuth;
+
+use Log;
+
 class ProviderController extends Controller
 {
+
+    public function authenticateAllProviders()
+    {
+        // Fetch all active providers
+        $authServices = new AuthService();
+        // Log::info("all providers are:" . json_encode($providers));
+        $authServices->authenticateAllProviders();
+    }
+
+
     /**
      * Display a listing of the resource.
      */

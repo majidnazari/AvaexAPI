@@ -10,6 +10,7 @@ class provider extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+
         'user_name',
         'password',
         'password',
@@ -18,9 +19,9 @@ class provider extends Model
         'base_url',
         'token_url',
         'base_token',
-        'token',
+        'access_token',
         'refresh_token',
-        'expire_date',
+        'expires_in',
         'status'
 
     ];
