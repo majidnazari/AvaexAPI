@@ -1,9 +1,16 @@
+
+#import Type/type.graphql
+
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
 scalar DateTime
-# @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 "Indicates what fields are available at the top level of a query operation."
 type Query {
+
+    #import Queries/Permission/Permission.graphql
+    #import Queries/Role/Role.graphql
+
     "Find a single user by an identifying attribute."
     user(
         "Search by primary key."
@@ -20,6 +27,10 @@ type Query {
         "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
         name: String @where(operator: "like")
     ): [User!]! @guard(with: ["api"]) @paginate(defaultCount: 10)
+
+    test1(p1: String): String
+        @guard(with: ["api"])
+        @field(resolver: "App\\GraphQL\\Queries\\TestQuery@test1")
 }
 
 "Account of a person who utilizes this application."
@@ -41,4 +52,10 @@ type User {
 
     "When the account was last updated."
     updated_at: DateTime!
+}
+
+type Mutation{
+
+     #import Mutations/Permission/Permission.graphql
+     #import Mutations/Role/Role.graphql
 }

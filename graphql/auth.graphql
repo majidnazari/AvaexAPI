@@ -9,8 +9,16 @@ input RefreshTokenInput {
 
 type User {
     id: ID!
-    user_name: String!
+    first_name: String!
+    last_name: String!
+    national_code: String!
+    national_company_code: String!
+    mobile: String!
     email: String!
+    phone: String!
+    credit: String!
+    user_type: UserType
+    status: UserStatus
 }
 
 type AuthPayload {
@@ -63,6 +71,12 @@ input NewPasswordWithCodeInput {
     password: String! @rules(apply: ["required", "confirmed", "min:8"])
     password_confirmation: String!
 }
+enum UserStatus {
+    Active
+    Suspend
+    Inactive
+}
+
 enum UserType {
     Legal
     Private
@@ -72,22 +86,14 @@ input RegisterInput {
     first_name: String! @rules(apply: ["required", "string"])
     last_name: String! @rules(apply: ["required", "string"])
     email: String! @rules(apply: ["required", "email", "unique:users,email"])
-    mobile: String @rules(apply: ["mobile", "unique:users,mobile"])
+    mobile: String @rules(apply: ["required", "unique:users,mobile"])
     phone: String
     user_type: UserType!
     national_code: String
-        @rules(
-            apply: ["national_code", "unique:users,national_code", "size:10"]
-        )
+        @rules(apply: ["unique:users,national_code", "size:10"])
 
     national_company_code: String
-        @rules(
-            apply: [
-                "national_company_code"
-                "unique:users,national_company_code"
-                "size:10"
-            ]
-        )
+        @rules(apply: ["unique:users,national_company_code", "size:10"])
     password: String! @rules(apply: ["required", "confirmed", "min:8"])
     password_confirmation: String!
 }
@@ -108,9 +114,10 @@ input UpdatePassword {
 }
 
 extend type Mutation {
-    login(input: LoginInput @spread): AuthPayload!
+    login(input: LoginInput @spread): AuthPayload
         @field(
-            resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Login@resolve"
+            # resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Login@resolve"
+            resolver: "App\\GraphQL\\Mutations\\Login@resolve"
         )
     refreshToken(input: RefreshTokenInput @spread): RefreshTokenPayload!
         @field(

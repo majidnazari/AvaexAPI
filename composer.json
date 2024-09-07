@@ -11,7 +11,8 @@
         "laravel/passport": "^12.3",
         "laravel/tinker": "^2.9",
         "mll-lab/laravel-graphiql": "^3.2",
-        "nuwave/lighthouse": "^6.42",
+        "mll-lab/laravel-graphql-playground": "^1.1",
+        "nuwave/lighthouse": "^6.44",
         "spatie/laravel-permission": "^6.9"
     },
     "require-dev": {

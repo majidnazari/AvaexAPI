@@ -71,7 +71,8 @@ return [
     | Path to your .graphql schema file.
     | Additional schema files may be imported from within that file.
     |
-    */
+    */   
+
 
     'schema_path' => base_path('graphql/schema.graphql'),
 

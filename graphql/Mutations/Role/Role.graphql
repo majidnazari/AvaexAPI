@@ -1,0 +1,7 @@
+
+# region Role
+    createRole(input: CreateRoleInput! @spread): Role! @throttle(maxAttempts:10 decayMinutes:1.0)  @guard(with:["api"]) @field(resolver: "App\\GraphQL\\Mutations\\Role\\CreateRole@resolver")
+    # createRoleWithDate(input: CreateRoleWithDateInput! @spread): Role!  @field(resolver: "App\\GraphQL\\Mutations\\Role\\CreateRole@resolverWithDate")
+    # updateRole(input: UpdateRoleInput! @spread): Role! @throttle(maxAttempts:10 decayMinutes:1.0) @can(ability: "update") @guard(with:["api"])  @field(resolver: "App\\GraphQL\\Mutations\\Role\\UpdateRole@resolver")
+    # deleteRole(id:ID!):Role  @can(ability: "delete") @throttle(maxAttempts:10 decayMinutes:1.0) @guard(with:["api"]) @field(resolver: "App\\GraphQL\\Mutations\\Role\\DeleteRole@resolver")
+   #end Role

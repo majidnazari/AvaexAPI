@@ -1,0 +1,43 @@
+enum SortOrder {
+    ASC
+    DESC
+}
+
+enum ManagerStatus {
+    approved
+    pending
+}
+
+enum FinancialStatus {
+    approved
+    pending
+    semi_approved
+}
+
+enum StudentMajor {
+    experimental
+    mathematics
+    humanities
+    art
+    other
+}
+
+input CreatePermissionInput {
+    name: String!
+    guard_name: String!
+}
+
+type Permission {
+    name: String
+    guard_name: String
+}
+
+input CreateRoleInput {
+    name: String!
+    guard_name: String!
+}
+
+type Role {
+    name: String
+    guard_name: String
+}

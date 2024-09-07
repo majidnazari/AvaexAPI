@@ -1,0 +1,10 @@
+getPermission(id:ID!): Permission @guard(with:["api"]) @can(ability: "view") @field(resolver: "App\\GraphQL\\Queries\\Permission\\GetPermission@resolvePermission") 
+  getPermissions(
+        #  status:String @like(template: "%{}%")
+         name:String @like(template: "%{}%")
+         guard_name:String @like(template: "%{}%")
+
+         orderBy:[OrderByClause!] @orderBy
+    ): [Permission] 
+    @guard(with:["api"])   
+    @field(resolver: "App\\GraphQL\\Queries\\Permission\\GetPermissions@resolvePermissions") 

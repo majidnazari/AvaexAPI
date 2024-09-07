@@ -1,0 +1,10 @@
+getRole(id:ID!): Role @guard(with:["api"]) @can(ability: "view") @field(resolver: "App\\GraphQL\\Queries\\Role\\GetRole@resolveRole") 
+  getRoles(
+        #  status:String @like(template: "%{}%")
+         name:String @like(template: "%{}%")
+         guard_name:String @like(template: "%{}%")
+
+         orderBy:[OrderByClause!] @orderBy
+    ): [Role] 
+    @guard(with:["api"])   
+    @field(resolver: "App\\GraphQL\\Queries\\Role\\GetRoles@resolveRoles") 
