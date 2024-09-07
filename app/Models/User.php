@@ -9,6 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Passport\HasApiTokens;
 
+use Spatie\Permission\Models\Permission;
+
+
+use Log;
+
 class User extends Authenticatable
 {
     use HasFactory;
@@ -58,4 +63,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // public function permissions()
+    // {
+
+    //     return $this->morphToMany(
+    //         \Spatie\Permission\Models\Permission::class,
+    //         'model',
+    //         'model_has_permissions', // The name of the table
+    //         'model_id', // The foreign key of the model
+    //         'permission_id', // The foreign key of the permission
+    //         'model_type' // The name of the column that stores the model type
+    //     );
+    // }
 }

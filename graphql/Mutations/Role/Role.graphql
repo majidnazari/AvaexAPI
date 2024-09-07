@@ -5,3 +5,6 @@
     # updateRole(input: UpdateRoleInput! @spread): Role! @throttle(maxAttempts:10 decayMinutes:1.0) @can(ability: "update") @guard(with:["api"])  @field(resolver: "App\\GraphQL\\Mutations\\Role\\UpdateRole@resolver")
     # deleteRole(id:ID!):Role  @can(ability: "delete") @throttle(maxAttempts:10 decayMinutes:1.0) @guard(with:["api"]) @field(resolver: "App\\GraphQL\\Mutations\\Role\\DeleteRole@resolver")
    #end Role
+
+       createRolePermissions(input: CreateRolePermissionsInput @spread): RolePermission @throttle(maxAttempts:10 decayMinutes:1.0)  @guard(with:["api"]) @field(resolver: "App\\GraphQL\\Mutations\\Role\\CreateRolePermission@resolver")
+       createModelRole(input: CreateModelRoleInput @spread): ModelRole @throttle(maxAttempts:10 decayMinutes:1.0)  @guard(with:["api"]) @field(resolver: "App\\GraphQL\\Mutations\\Role\\CreateModelRole@resolver")

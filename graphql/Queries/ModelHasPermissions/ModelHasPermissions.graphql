@@ -1,0 +1,10 @@
+getModelHasPermissions(id:ID!): ModelHasPermission @guard(with:["api"]) @can(ability: "view") @field(resolver: "App\\GraphQL\\Queries\\ModelHasPermission\\GetModelHasPermission@resolveModelHasPermission") 
+  getModelHasPermissions(
+        #  status:String @like(template: "%{}%")
+         permission_id :String @like(template: "%{}%")
+         guard_name:String @like(template: "%{}%")
+
+         orderBy:[OrderByClause!] @orderBy
+    ): [ModelHasPermission] 
+    @guard(with:["api"])   
+    @field(resolver: "App\\GraphQL\\Queries\\ModelHasPermission\\GetModelHasPermissions@resolveModelHasPermissions") 

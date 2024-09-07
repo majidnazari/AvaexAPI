@@ -41,3 +41,61 @@ type Role {
     name: String
     guard_name: String
 }
+
+type ModelPermissions {
+    permission_id: ID!
+    model_type: String!
+    model_id: ID!
+}
+
+input CreateModelPermissionsInput {
+    user_id: ID!
+    permission_ids: [String]
+}
+
+input CreateModelRoleInput {
+    user_id: ID!
+    role_ids: [String]
+}
+
+input CreateRolePermissionsInput {
+    role_id: ID!
+    permission_ids: [String]
+}
+
+type UserPermission {
+    id: ID
+    first_name: String
+    last_name: String
+    national_code: String
+    national_company_code: String
+    mobile: String
+    email: String
+    phone: String
+    credit: String
+    user_type: UserType
+    status: UserStatus
+    permissions: [Permission]
+}
+
+type RolePermission {
+    name: String
+    guard_name: String
+
+    permissions: [Permission]
+}
+
+type ModelRole {
+    id: ID
+    first_name: String
+    last_name: String
+    national_code: String
+    national_company_code: String
+    mobile: String
+    email: String
+    phone: String
+    credit: String
+    user_type: UserType
+    status: UserStatus
+    roles: [Role]
+}
