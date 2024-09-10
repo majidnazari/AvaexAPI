@@ -5,7 +5,9 @@ namespace App\Services;
 use App\Services\Contracts\ServicesInterface;
 use Illuminate\Support\Facades\Http;
 
-class SpaceService implements AvaexServiceInterface
+use Log;
+
+class AvaexService implements ServicesInterface
 {
     private $providers;
 

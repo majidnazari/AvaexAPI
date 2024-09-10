@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Mutations\Role;
+namespace App\GraphQL\Mutations\RolePermission;
 
 use App\Models\User;
 use Spatie\Permission\Models\Permission;

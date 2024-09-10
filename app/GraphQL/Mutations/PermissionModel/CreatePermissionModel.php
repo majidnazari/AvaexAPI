@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Mutations\Permission;
+namespace App\GraphQL\Mutations\PermissionModel;
 
 use App\Models\User;
 use Spatie\Permission\Models\Permission;
@@ -11,7 +11,7 @@ use GraphQL\Error\Error;
 use Log;
 use Throwable;
 
-final class CreateModelPermission
+final class CreatePermissionModel
 {
     /**
      * @param  null  $_

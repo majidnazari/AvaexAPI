@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Joselfonseca\LighthouseGraphQLPassport\GraphQL\Mutations\BaseAuthResolver;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
+use Log;
 
 class Register extends BaseAuthResolver
 {
@@ -23,7 +24,8 @@ class Register extends BaseAuthResolver
      */
     public function resolve($rootValue, array $args, GraphQLContext $context = null, ResolveInfo $resolveInfo)
     {
-        $model = $this->createAuthModel($args);
+       
+        $model = $this->createAuthModel($args);       
 
         $this->validateAuthModel($model);
 
@@ -47,7 +49,7 @@ class Register extends BaseAuthResolver
         event(new Registered($user));
 
         return [
-            'tokens' => $response,
+            'tokens' => null,//$response,
             'status' => 'SUCCESS',
         ];
     }

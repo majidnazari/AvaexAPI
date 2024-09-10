@@ -14,14 +14,6 @@ enum FinancialStatus {
     semi_approved
 }
 
-enum StudentMajor {
-    experimental
-    mathematics
-    humanities
-    art
-    other
-}
-
 input CreatePermissionInput {
     name: String!
     guard_name: String!

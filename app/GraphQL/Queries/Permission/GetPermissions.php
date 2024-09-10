@@ -22,9 +22,7 @@ final class GetPermissions
     }
     public function resolvePermissions($rootValue, array $args, GraphQLContext $context = null, ResolveInfo $resolveInfo)
     {
-        $user_id = auth()->guard('api')->user()->id;    
-        
-        
+        $user_id = auth()->guard('api')->user()->id; 
                
         $Permissions = Permission::where('name','like','%'.$args['name'].'%')->where('guard_name','like','%'.$args['guard_name'].'%')->get();       
         

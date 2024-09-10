@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Mutations\Role;
+namespace App\GraphQL\Mutations\RoleModel;
 
 use App\Models\User;
 use Spatie\Permission\Models\Permission;
@@ -12,7 +12,7 @@ use Log;
 use Spatie\Permission\Models\Role;
 use Throwable;
 
-final class CreateModelRole
+final class CreateRoleModel
 {
     /**
      * @param  null  $_

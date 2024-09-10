@@ -2,7 +2,7 @@
 
 namespace App\Services\Contracts;
 
-interface AvaexServiceInterface
+interface ServicesInterface
 {
     public function getPricing(array $data);
     public function createOrder(array $data);

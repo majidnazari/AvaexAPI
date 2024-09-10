@@ -6,4 +6,4 @@
     # deletePermission(id:ID!):Permission  @can(ability: "delete") @throttle(maxAttempts:10 decayMinutes:1.0) @guard(with:["api"]) @field(resolver: "App\\GraphQL\\Mutations\\Permission\\DeletePermission@resolver")
    #end Permission
 
-    createModelPermissions(input: CreateModelPermissionsInput @spread): UserPermission @throttle(maxAttempts:10 decayMinutes:1.0)  @guard(with:["api"]) @field(resolver: "App\\GraphQL\\Mutations\\Permission\\CreateModelPermission@resolver")
+    createPermissionModel(input: CreateModelPermissionsInput @spread): UserPermission @throttle(maxAttempts:10 decayMinutes:1.0)  @guard(with:["api"]) @field(resolver: "App\\GraphQL\\Mutations\\PermissionModel\\CreatePermissionModel@resolver")
