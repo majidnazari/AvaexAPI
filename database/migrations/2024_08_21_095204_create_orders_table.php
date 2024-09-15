@@ -24,8 +24,9 @@ return new class extends Migration
             $table->boolean("is_COD")->default(false);
             $table->bigInteger("COD")->nullable();
             $table->enum("payment_type", ["Befor", "After", "None"])->default("None");
-            $table->enum("payment_way", ["credit", "online", "cash", "None"])->default("None");
-            $table->enum("order_status", ["agent_registered", "suspend", "send_to_driver", "Preparing", "Prepared", "Ready_to_send", "Sent",  "Delived", "Returned", "None"])->default("None");
+            $table->enum("payment_way", ["Credit", "Online", "Cash", "None"])->default("None");
+            $table->enum("order_status", ["Agent_registered", "Suspend", "Send_to_driver", "Preparing", "Prepared",
+             "Ready_to_send", "Sent",  "Delived", "Returned", "None"])->default("None");
 
             $table->string('description');
 

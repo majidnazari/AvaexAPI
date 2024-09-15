@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProviderPickUpType extends Model
 {
+    protected $fillable = [];
     use HasFactory;
 }

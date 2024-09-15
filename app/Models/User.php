@@ -26,20 +26,7 @@ class User extends Authenticatable
      */
 
      protected $guard_name = 'api'; // Ensure this matches your guard
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'email',
-        'password',
-        'national_code',
-        'national_company_code',
-        'mobile',
-        'phone',
-        'credit',
-        'status',
-        'user_type'
-
-    ];
+    protected $fillable = ['first_name', 'last_name', 'email', 'password', 'national_code', 'national_company_code', 'mobile', 'phone', 'credit', 'status', 'user_type', 'email_verified_at', 'remember_token', 'avatar'];
 
     /**
      * The attributes that should be hidden for serialization.

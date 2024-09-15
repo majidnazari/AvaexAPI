@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Province extends Model
 {
+    protected $fillable = ['country_id', 'fa_name', 'en_name'];
     use HasFactory;
 }

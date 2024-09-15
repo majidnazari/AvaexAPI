@@ -16,6 +16,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+
+        $this->app->bind('PostService', function ($app) {
+            return new \App\Services\PostService(); // Update the namespace if necessary
+        });
+        $this->app->bind('TipaxService', function ($app) {
+            return new \App\Services\TipaxService(); // Update the namespace if necessary
+        });
         // $this->app->singleton('Post.auth', function ($app) {
         //     return new PostAuth();
         // });

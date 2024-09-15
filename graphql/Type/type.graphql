@@ -91,3 +91,147 @@ type ModelRole {
     status: UserStatus
     roles: [Role]
 }
+enum OrderKind {
+    One_sender_one_recipient
+    One_sender_many_recipient
+}
+# enum FinancialStatus{
+#     1,
+#     2
+# }
+
+enum PaymentType {
+    Befor
+    After
+}
+
+enum PaymentWay {
+    credit
+    online
+    cash
+}
+
+enum OrderStatus {
+    agent_registered
+    suspend
+    send_to_driver
+    Preparing
+    Prepared
+    Ready_to_send
+    Sent
+    Delived
+    Returned
+}
+
+type Order {
+    id: ID
+    user_id_creator: Int
+    user_id_agent: Int
+    provider_service_id: Int
+    sender_address_id: Int
+    recipient_address_id: Int
+    register_date: String
+    order_kind: OrderKind
+    # financial_status: FinancialStatus
+    is_COD: Boolean
+    COD: Float
+    payment_type: PaymentType
+    payment_way: PaymentWay
+    order_status: OrderStatus
+    description: String
+}
+
+input InquiryOrderInput {
+    provider_service_id: Int
+    sender_address_id: Int
+    recipient_address_id: Int
+    register_date: String
+    order_kind: OrderKind
+    # financial_status: FinancialStatus
+    is_COD: Boolean
+    COD: Float
+    payment_type: PaymentType
+    payment_way: PaymentWay
+    order_status: OrderStatus
+    description: String
+    parcels: [Parcel]
+}
+
+enum ParcelStatus {
+    Injured
+    Delived
+    Returned
+}
+
+type OrderDetail {
+    id: ID
+    order_id: Int
+    parcel_id: Int
+    registered_number: String
+    tracking_code: String
+    refrence_code: String
+    lading_code: String
+    barcode: OrderKind
+    parcel_status: ParcelStatus
+    insurance_provider_cost: Int
+    tax_provider_cost: Int
+    fee_provider_cost: Int
+    unusual_provider_cost: Int
+    extra_provider_cost: Int
+    insurance_service_cost: Int
+
+    fee_service_cost: Int
+    tax_service_cost: Int
+    collecting_service_cost: Int
+    inplace_service_cost: Int
+    fee_service_VIP: Int
+    SMS_service_cost: Int
+    print_service_cost: Int
+    extra_service_cost: Int
+    manager_commission: Int
+    description: String
+}
+
+enum PackageType {
+    Bag
+    Carton
+    Envelope
+    Bubble_envelope
+    Screw_bubble
+    Foam_screw
+}
+
+type Parcel {
+    id: ID
+    package_type: PackageType
+    weight: Int
+    width: Int
+    length: Int
+    height: Int
+    parcel_value: Int
+    is_breakable: Boolean
+    is_liquids: Boolean
+
+    description: String
+}
+
+input Parcel {
+    package_type: PackageType
+    weight: Int
+    width: Int
+    length: Int
+    height: Int
+    parcel_value: Int
+    is_breakable: Boolean
+    is_liquids: Boolean
+
+    description: String
+}
+type ParcelDetail {
+    id: ID
+    parcel_id: Int
+    name: String
+    count: Int
+
+    description: String
+}

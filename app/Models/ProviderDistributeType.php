@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProviderDistributeType extends Model
 {
+    protected $fillable = ['provider_id', 'provider_name', 'code', 'distribute_type', 'parcel_status'];
     use HasFactory;
 }

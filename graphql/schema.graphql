@@ -58,4 +58,5 @@ type Mutation{
      
      #import Mutations/Permission/Permission.graphql
      #import Mutations/Role/Role.graphql
+     #import Mutations/Order/InquiryOrder.graphql
 }

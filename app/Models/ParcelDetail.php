@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ParcelDetail extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['parcel_id', 'name', 'count', 'description'];
 }

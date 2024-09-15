@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('major')->nullable();
             $table->enum('marital_status', ["Single", "Married", "Absolute", "Divorced", "None"])->default("None");
             $table->tinyInteger('number_of_children')->nullable();
-            $table->enum('gender', ["Male", "Femail", "None"])->default("Male");
+            $table->enum('gender', ["Male", "Female", "None"])->default("Male");
             $table->enum('commitment_status', ["1", "2", "None"])->default("None");
             $table->enum('show_status', ["Show", "Hide", "None"])->default("None");
             $table->dateTime('birth_date')->nullable();
